@@ -15,7 +15,7 @@
     </nav>
     <menuIcon class="menu-icon"/>
     <transition name="mobile-nav">
-      <ul>
+      <ul class="mobile-nav">
         <router-link class="link" to="#">Home</router-link>
         <router-link class="link" to="#">Blogs</router-link>
         <router-link class="link" to="#">Create Post</router-link>
