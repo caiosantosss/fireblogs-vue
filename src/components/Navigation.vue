@@ -145,7 +145,7 @@ header {
 
   .mobile-nav-enter-active,
   .mobile-nav-leave-active {
-    transition: all 1s ease;
+    transition: all .3s ease;
   }
 
   .mobile-nav-enter {
