@@ -3,7 +3,7 @@
     <div class="container">
       <div class="left">
         <div class="col-1">
-          <router-link class="header" :to="{name: 'Home'}">FireBlogs</router-link>
+          <router-link class="header" :to="{name: 'home'}">FireBlogs</router-link>
           <ul>
             <li>
               <a href="#"><youTube class='svg-icon' /></a>
@@ -51,10 +51,10 @@ export default {
 }
 </script>
 
-<style lang='scss' scoped>
+<style lang="scss" scoped>
 footer {
   margin-top: auto;
-  padding: 100px, 25px;
+  padding: 100px 25px;
   background-color: #303030;
   .container {
     display: flex;
@@ -82,10 +82,14 @@ footer {
       }
 
       .header {
+        text-align: center;
         font-size: 24px;
         color: #fff;
         font-weight: 600;
         text-decoration: none;
+        @media (min-width: 768px) {
+          text-align: initial;
+        }
       }
       ul {
         gap: 16px;
@@ -149,7 +153,7 @@ footer {
     .right {
       gap: 32px;
       color: #fff;
-      align-items: flex-end;
+      align-items: center;
       flex-direction: column;
       @media (min-width: 768px) {
         align-items: flex-end;
