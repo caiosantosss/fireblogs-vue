@@ -1,13 +1,15 @@
 <template>
   <div class="home">
-
+    <BlogPost />
+    <BlogPost />
   </div>
 </template>
 
 <script>
+import BlogPost from "../components/BlogPost";
 export default {
   name: "Home",
-  components: {},
+  components: { BlogPost },
   data() {
     return {
       welcomeScreen: {
