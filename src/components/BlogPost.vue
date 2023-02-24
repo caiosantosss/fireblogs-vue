@@ -1,6 +1,7 @@
 <template>
-  <div>
-    <h2>Hello</h2>
+  <div class="blog-wrapper">
+    <div class="blog-content">
+    </div>
   </div>
 </template>
 
