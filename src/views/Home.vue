@@ -22,7 +22,7 @@ export default {
         {
           title: "This is a Filter Title",
           blogHTML: "This is a filter blog post title!",
-          blogCoverPhoto: "bealtiful-stories",
+          blogCoverPhoto: "beautiful-stories",
         },
         {
           title: "This is a Filter Title",
