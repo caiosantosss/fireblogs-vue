@@ -1,10 +1,10 @@
 <template>
   <div class="blog-card">
     <div class="icons">
-      <div class="icon">
+      <div class="edit">
         <Edit />
       </div>
-      <div class="icon">
+      <div class="delete">
         <Delete />
       </div>
     </div>
@@ -35,4 +35,42 @@ export default {
 </script>
 
 <style lang="scss" scoped>
+.blog-card {
+  position: relative;
+  cursor: pointer;
+  display: flex;
+  flex-direction: column;
+  border-radius: 8px;
+  background-color: #fff;
+  min-height: 420px;
+  transition: .5s ease all;
+
+  &:hover {
+    transform: rotateZ(-1deg) scale(1.01);
+    box-shadow: 0 4px 6px -1px rgba(0, 0, 0, 0.1), 0 2px 4px -1px rgba(0, 0, 0, 0.06);
+  }
+
+  .icons {
+    display: flex;
+    position: absolute;
+    top: 10px;
+    right: 10px;
+    z-index: 99;
+
+    .icon {
+      display: flex;
+      justify-content: content;
+      align-items: center;
+      width: 35px;
+      height: 35px;
+      border-radius: 50%;
+      background-color: #fff;
+      transition: .5s ease all;
+
+      &:hover {
+        background-color: #303030;
+      }
+    }
+  }
+}
 </style>
