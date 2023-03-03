@@ -59,7 +59,7 @@ export default {
 
     .icon {
       display: flex;
-      justify-content: content;
+      justify-content: center;
       align-items: center;
       width: 35px;
       height: 35px;
