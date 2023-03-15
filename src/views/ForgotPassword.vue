@@ -1,5 +1,7 @@
 <template>
-
+<div>
+FORGOT PASSWORD
+</div>
 </template>
 
 <script>
