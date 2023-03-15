@@ -22,6 +22,30 @@ const routes = [
       title: "Blogs",
     }
   },
+  {
+    path: "/login",
+    name: "Login",
+    component: Login,
+    meta: {
+      title: "Login",
+    }
+  },
+  {
+    path: '/register',
+    name: 'Register',
+    component: Register,
+    meta: {
+      title: 'Register',
+    }
+  },
+  {
+    path: '/forgot-password',
+    name: 'ForgotPassword',
+    component: ForgotPassword,
+    meta: {
+      title: 'Forgot Password',
+    }
+  }
 ];
 
 const router = new VueRouter({
