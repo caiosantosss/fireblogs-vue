@@ -43,5 +43,92 @@ export default {
 </script>
 
 <style lang="scss" scope>
+.form-wrap {
+  overflow: hidden;
+  display: flex;
+  height: 100vh;
+  justify-content: center;
+  align-items: center;
+  margin: 0 auto;
+  width: 90%;
+  @media (max-width: 768px) {
+    width: 100%;
+  }
 
+  .login-register {
+    margin-bottom: 32px;
+
+    .router-link {
+      color: #000;
+    }
+  }
+
+  form {
+    padding: 0 10px;
+    position: relative;
+    display: flex;
+    flex-direction: column;
+    justify-content: center;
+    align-items: center;
+    flex: 1;
+    @media (max-width: 768px) {
+      padding: 0 50px;
+    }
+
+    h2 {
+      text-align: center;
+      font-size: 32px;
+      color: #303030;
+      margin-bottom: 40px;
+      @media (max-width: 768px) {
+        font-size: 40px;
+      }
+    }
+
+    .inputs {
+      width: 100%;
+      max-width: 350px;
+
+      .input,
+      .password {
+        position: relative;
+        display: flex;
+        justify-content: center;
+        align-items: center;
+        margin-bottom: 8px;
+        input {
+          width: 100%;
+          border: none;
+          background-color: #f2f7f6;
+          padding: 4px 4px 4px 30px;
+          height: 50px;
+
+          &:focus {
+            outline: none;
+          }
+        }
+
+        .icon {
+          width: 12px;
+          position: absolute;
+          left: 10px;
+        }
+      }
+    }
+
+    .forgot-password {
+      text-decoration: none;
+      color: #000;
+      cursor: pointer;
+      font-size: 14px;
+      margin: 16px 0 32px;
+      border-bottom: 1px solid transparent;
+      transition: all 0.5s ease;
+
+      &:hover {
+        border-bottom: 1px solid #303030;
+      }
+    }
+  }
+}
 </style>
