@@ -51,7 +51,7 @@ export default {
   align-items: center;
   margin: 0 auto;
   width: 90%;
-  @media (max-width: 768px) {
+  @media (min-width: 768px) {
     width: 100%;
   }
 
@@ -71,7 +71,7 @@ export default {
     justify-content: center;
     align-items: center;
     flex: 1;
-    @media (max-width: 768px) {
+    @media (min-width: 768px) {
       padding: 0 50px;
     }
 
@@ -80,7 +80,7 @@ export default {
       font-size: 32px;
       color: #303030;
       margin-bottom: 40px;
-      @media (max-width: 768px) {
+      @media (min-width: 768px) {
         font-size: 40px;
       }
     }
@@ -137,7 +137,7 @@ export default {
       transform: rotateZ(3deg);
       width: 60px;
       right: -30px;
-      height: 101%;
+      height: 300%;
       @media (min-width: 768px) {
         display: initial;
       }
