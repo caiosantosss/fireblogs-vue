@@ -38,6 +38,7 @@ components: {
         margin-bottom: 8px;
       }
       p {
+        text-align: center;
         margin-bottom: 32px;
       }
     }
