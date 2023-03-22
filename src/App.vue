@@ -137,6 +137,12 @@ button,
   background-color: rgba(128, 128, 128, 0.5) !important;
 }
 
+.error {
+  text-align: center;
+  font-size: 12px;
+  color: #ff0000;
+}
+
 .blog-card-wrap {
   position: relative;
   padding: 80px 16px;
