@@ -24,7 +24,7 @@ export default {
   },
   created() {
     this.checkRoute();
-    console.log(firebase.auth().currentUser.uid);
+    console.log(firebase.auth().currentUser);
   },
   mounted() {},
   methods: {
