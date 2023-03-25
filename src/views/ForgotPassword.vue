@@ -16,7 +16,7 @@
             <Email class="icon"/>
           </div>
         </div>
-        <button>Reset Password</button>
+        <button @click.prevent="resetPassword">Reset Password</button>
         <div class="angle"></div>
       </form>
       <div class="background"></div>
