@@ -11,9 +11,9 @@
           <router-link class="link" to="#">Create Post</router-link>
           <router-link class="link" :to="{ name: 'Login' }">Login/Register</router-link>
         </ul>
-        <div class="profile" ref="profile">
+        <div @click="toggleProfileMenu" class="profile" ref="profile">
           <span>{{ this.$store.state.profileInitials }}</span>
-          <div class="profile-menu">
+          <div v-show="profileMenu" class="profile-menu">
             <div class="info">
               <p class="initials">{{ this.$store.state.profileInitials }}</p>
               <div class="right">
@@ -74,6 +74,7 @@ export default {
   },
   data() {
     return {
+      profileMenu: null,
       mobile: null,
       mobileNav: null,
       windowWidth: null,
@@ -96,6 +97,11 @@ export default {
     },
     toggleMobileNav() {
       this.mobileNav = !this.mobileNav;
+    },
+    toggleProfileMenu(e) {
+      if (e.target === this.$refs.profile) {
+        this.profileMenu = !this.profileMenu;
+      }
     },
   }
 }
@@ -164,6 +170,10 @@ header {
         border-radius: 50%;
         color: #fff;
         background-color: #303030;
+
+        span {
+          pointer-events: none;
+        }
 
         .profile-menu {
           position: absolute;
