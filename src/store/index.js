@@ -40,7 +40,7 @@ export default new Vuex.Store({
       state.profileId = doc.id;
     },
     setProfileInitials(state) {
-      state.profileInitials = state.profileFirstName.charAt(0) + state.profileLastName.charAt(0);
+      state.profileInitials = state.profileFirstName.charAt(0).toUpperCase() + state.profileLastName.charAt(0).toUpperCase();
     },
   },
   actions: {
