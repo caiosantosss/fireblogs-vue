@@ -42,6 +42,15 @@ export default new Vuex.Store({
     setProfileInitials(state) {
       state.profileInitials = state.profileFirstName.charAt(0).toUpperCase() + state.profileLastName.charAt(0).toUpperCase();
     },
+    changeFirstName(state, payload) {
+      state.profileFirstName = payload;
+    },
+    changeLastName(state, payload) {
+      state.profileLastName = payload;
+    },
+    changeUsername(state, payload) {
+      state.profileUsername = payload;
+    },
   },
   actions: {
     async getCurrentUser({ commit }) {

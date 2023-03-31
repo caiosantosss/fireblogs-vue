@@ -23,7 +23,7 @@
         </div>
         <div class="input">
           <label for="email">Email</label>
-          <input type="text" id="email" v-model="email" />
+          <input disabled type="text" id="email" v-model="email" />
         </div>
         <button>Save Changes</button>
       </div>
@@ -41,17 +41,42 @@ export default {
   },
   data() {
     return {
-      modalActive: true,
+      modalActive: null,
       modalMessage: 'Changes were saved successfully!',
-      firstName: '',
-      lastName: '',
-      username: '',
-      email: '',
     };
   },
   methods: {
     closeModal() {
       this.modalActive = !this.modalActive;
+    },
+  },
+  computed: {
+    firstName: {
+      get() {
+        return this.$store.state.profileFirstName;
+      },
+      set(value) {
+        this.$store.commit('changeFirstName', value);
+      },
+    },
+    lastName: {
+      get() {
+        return this.$store.state.profileLastName;
+      },
+      set(value) {
+        this.$store.commit('changeLastName', value);
+      },
+    },
+    username: {
+      get() {
+        return this.$store.state.profileUsername;
+      },
+      set(value) {
+        this.$store.commit('changeUsername', value);
+      },
+    },
+    email() {
+      return this.$store.state.profileEmail;
     },
   }
 }
