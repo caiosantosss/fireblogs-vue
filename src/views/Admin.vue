@@ -15,7 +15,13 @@
 </template>
 <script>
 export default {
-
+  name: 'Admin',
+  data() {
+    return {
+      adminEmail: '',
+      functionMsg: null,
+    };
+  },
 }
 </script>
 <style lang="scss" scoped>
