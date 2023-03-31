@@ -25,7 +25,7 @@
           <label for="email">Email</label>
           <input disabled type="text" id="email" v-model="email" />
         </div>
-        <button>Save Changes</button>
+        <button @click="updateProfile">Save Changes</button>
       </div>
     </div>
   </div>
@@ -49,6 +49,10 @@ export default {
     closeModal() {
       this.modalActive = !this.modalActive;
     },
+    updateProfile() {
+      this.$store.dispatch('updateUserSettings');
+      this.modalActive = !this.modalActive;
+    }
   },
   computed: {
     firstName: {
