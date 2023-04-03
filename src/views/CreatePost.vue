@@ -41,7 +41,31 @@ export default {
         }
       }
     }
-  }
+  },
+  computed: {
+    profileId() {
+      return this.$store.state.profileId;
+    },
+    blogCoverPhotoName() {
+      return this.$store.state.blogPhotoName;
+    },
+    blogTitle: {
+      get() {
+        return this.$store.state.blogTitle;
+      },
+      set(value) {
+        this.$store.commit('updateBlogTitle', value);
+      },
+    },
+    blogHTML: {
+      get() {
+        return this.$store.state.blogHTML;
+      },
+      set(value) {
+        this.$store.commit('newBlogPost', value);
+      },
+    },
+  },
 }
 </script>
 
