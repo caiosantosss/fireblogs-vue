@@ -8,8 +8,8 @@
         <input type="text" placeholder="Enter Blog Title" v-model="blogTitle">
         <div class="upload-file">
           <label for='blog-photo'>Upload Cover Photo</label>
-          <input type="file" ref="blog-photo" id="blog-photo" accept=".png, .jpg, jpeg" />
-          <button class="preview" :class="{'button-inactive': !this.$store.blogPhotoFileURL }">Preview Photo</button>
+          <input type="file" ref="blogPhoto" id="blog-photo" @change="fileChange" accept=".png, .jpg, .jpeg" />
+          <button class="preview" :class="{'button-inactive': !this.$store.state.blogPhotoFileURL }">Preview Photo</button>
           <span>File Chosen: {{ this.$store.state.blogPhotoName }}</span>
         </div>
       </div>
@@ -33,6 +33,7 @@ export default {
   name: 'CreatePost',
   data() {
     return {
+      file: null,
       error: null,
       errorMsg: null,
       editorSettings: {
@@ -41,6 +42,15 @@ export default {
         }
       }
     }
+  },
+  methods: {
+    fileChange() {
+      this.file = this.$refs.blogPhoto.files[0];
+      const fileName = this.file.name;
+      this.$store.commit('fileNameChange', fileName);
+      this.$store.commit('createFileURL', URL.createObjectURL(this.file));
+      console.log("isso", this.$store.state.blogPhotoFileURL)
+    },
   },
   computed: {
     profileId() {
