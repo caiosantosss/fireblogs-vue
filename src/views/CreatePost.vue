@@ -18,7 +18,7 @@
         <vue-editor :editorOptions="editorSettings" v-model="blogHTML" useCustomImageHandler @image-added="imageHandler" />
       </div>
       <div class="blog-actions">
-        <button>Publish Blog</button>
+        <button @click="uploadBlog">Publish Blog</button>
         <router-link class="router-button" :to="{ name: 'BlogPreview' }" >Post Preview</router-link>
       </div>
     </div>
@@ -29,6 +29,7 @@
 import BlogCoverPreview from '../components/BlogCoverPreview.vue';
 import firebase from 'firebase/app';
 import 'firebase/storage';
+// import db from '../firebase/firebaseInit';
 import Quill from 'quill';
 window.Quill = Quill;
 const imageResize = require('quill-image-resize-module').default;
@@ -74,6 +75,25 @@ export default {
         Editor.insertEmbed(cursorLocation, 'image', downloadURL);
         resetUploader();
       });
+    },
+    uploadBlog() {
+      if (this.blogTitle.length !== 0 && this.blogHTML.length !== 0 ) {
+        if (this.file) {
+          //
+          return;
+        }
+        this.error = true;
+        this.errorMsg = ' Please ensure that you have uploaded a cover photo.';
+        setTimeout(() => {
+          this.error = false;
+        }, 5000);
+        return;
+      }
+      this.error = true;
+      this.errorMsg = ' Please ensure that you have entered a title and blog content.';
+      setTimeout(() => {
+        this.error = false;
+      }, 5000);
     },
   },
   computed: {
