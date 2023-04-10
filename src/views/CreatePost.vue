@@ -29,7 +29,7 @@
 import BlogCoverPreview from '../components/BlogCoverPreview.vue';
 import firebase from 'firebase/app';
 import 'firebase/storage';
-// import db from '../firebase/firebaseInit';
+import db from '../firebase/firebaseInit';
 import Quill from 'quill';
 window.Quill = Quill;
 const imageResize = require('quill-image-resize-module').default;
@@ -76,10 +76,31 @@ export default {
         resetUploader();
       });
     },
-    uploadBlog() {
+    async uploadBlog() {
       if (this.blogTitle.length !== 0 && this.blogHTML.length !== 0 ) {
         if (this.file) {
-          //
+          const storageRef = firebase.storage().ref();
+          const docRef = storageRef.child(`documents/blogCoverPhotos/${this.$store.state.blogPhotoName}`);
+          docRef.put(this.file).on('state_changed', (snapshot) => {
+            console.log(snapshot);
+          }), (err) => {
+            // to do
+            console.log(err);
+          };
+            const downloadURL = await docRef.getDownloadURL();
+            const timestamp = await Date.now();
+            const dataBase = await db.collection('blogPosts').doc();
+
+            await dataBase.set({
+              blogId: dataBase.id,
+              blogHTML: this.blogHTML,
+              blogCoverPhoto: downloadURL,
+              blogCoverPhotoName: this.blogCoverPhotoName,
+              blogTitle: this.blogTitle,
+              blogAuthor: this.profileId,
+              blogDate: timestamp,
+            });
+            this.$router.push({ name: 'ViewBlog' });
           return;
         }
         this.error = true;
