@@ -76,17 +76,18 @@ export default {
         resetUploader();
       });
     },
-    async uploadBlog() {
+    uploadBlog() {
       if (this.blogTitle.length !== 0 && this.blogHTML.length !== 0 ) {
         if (this.file) {
           const storageRef = firebase.storage().ref();
           const docRef = storageRef.child(`documents/blogCoverPhotos/${this.$store.state.blogPhotoName}`);
-          docRef.put(this.file).on('state_changed', (snapshot) => {
+          docRef.put(this.file).on("state_changed", (snapshot) => {
             console.log(snapshot);
-          }), (err) => {
+          }, (err) => {
             // to do
             console.log(err);
-          };
+          },
+          async () => {
             const downloadURL = await docRef.getDownloadURL();
             const timestamp = await Date.now();
             const dataBase = await db.collection('blogPosts').doc();
@@ -101,6 +102,7 @@ export default {
               blogDate: timestamp,
             });
             this.$router.push({ name: 'ViewBlog' });
+          });
           return;
         }
         this.error = true;
